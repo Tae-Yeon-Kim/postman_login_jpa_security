@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>temp</title>
+</head>
+<body>
+temp333333333 속이야!~~~ ~~~session 값 확인: <p ></p>
+
+
+
+<h3 class="overview-normalize">접속 아이디</h3>
+<p th:text="${authorities}"></p>
+<p th:text="${loginId}"></p>
+<p th:text="${loginpassword}"></p>
+</p>
+<hr/>
+<h3 class="overview-normalize">역할</h3>
+
+
+  ${loginRoles}
+
+</p>
+
+
+
+
+<a href="/member/update">내 정보 수정하기</a>
+<a href="/member/logout">로그아웃</a>
+</body>
+</html>

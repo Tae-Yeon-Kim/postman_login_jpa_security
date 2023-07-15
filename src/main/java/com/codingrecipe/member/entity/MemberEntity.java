@@ -4,6 +4,7 @@ import com.codingrecipe.member.dto.MemberDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Entity
 @Setter
@@ -25,12 +26,17 @@ public class MemberEntity {
     private String memberName;
 
 
+
+
+
+
+
     // save 즉 database 에 저장하기 위해 DTO를 받아와서 Entity 객체로 변환하는 과정!
-    public static MemberEntity toMemberEntity(MemberDTO memberDTO){
+    public static MemberEntity toMemberEntity(MemberDTO memberDTO, PasswordEncoder passwordEncoder){
         MemberEntity memberEntity = new MemberEntity();
 
         memberEntity.setMemberEmail(memberDTO.getMemberEmail());
-        memberEntity.setMemberPassword(memberDTO.getMemberPassword());
+        memberEntity.setMemberPassword(passwordEncoder.encode(memberDTO.getMemberPassword()));
         memberEntity.setMemberName(memberDTO.getMemberName());
         return memberEntity;
     }
